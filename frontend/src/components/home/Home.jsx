@@ -6,6 +6,17 @@ import venusImage from "../../images/venus.jpg";
 import spaceImage from "../../images/space.jpg";
 import { Typography } from '@mui/material';
 import TimeLine from '../timeline/TimeLine';
+import {
+    SiCplusplus,
+    SiReact,
+    SiJavascript,
+    SiMongodb,
+    SiNodedotjs,
+    SiExpress,
+    SiCss3,
+    SiHtml5,
+    SiThreedotjs,
+} from "react-icons/si";
 
 const Home = () => {
 
@@ -111,6 +122,41 @@ const Home = () => {
             <div className="homeContainer">
                 <Typography variant="h3">TIMELINE</Typography>
                 <TimeLine timelines={[1, 2, 3, 4]} />
+            </div>
+            <div className="homeSkills">
+                <Typography variant="h3">SKILLS</Typography>
+                <div className="homeCubeSkills">
+                    <div className="homeCubeSkillsFaces homeCubeSkillsFace1">
+                        <img src="https://i.ibb.co/0jqQxX5/html.png" alt="homeFace1" />
+                    </div>
+                    <div className="homeCubeSkillsFaces homeCubeSkillsFace2">
+                        <img src="https://i.ibb.co/0jqQxX5/html.png" alt="homeFace2" />
+                    </div>
+                    <div className="homeCubeSkillsFaces homeCubeSkillsFace3">
+                        <img src="https://i.ibb.co/0jqQxX5/html.png" alt="homeFace3" />
+                    </div>
+                    <div className="homeCubeSkillsFaces homeCubeSkillsFace4">
+                        <img src="https://i.ibb.co/0jqQxX5/html.png" alt="homeFace4" />
+                    </div>
+                    <div className="homeCubeSkillsFaces homeCubeSkillsFace5">
+                        <img src="https://i.ibb.co/0jqQxX5/html.png" alt="homeFace5" />
+                    </div>
+                    <div className="homeCubeSkillsFaces homeCubeSkillsFace6">
+                        <img src="https://i.ibb.co/0jqQxX5/html.png" alt="homeFace6" />
+                    </div>
+                </div>
+                <div className="cubeShadow"></div>
+                <div className="homeskillsBox">
+                    <SiCplusplus />
+                    <SiHtml5 />
+                    <SiCss3 />
+                    <SiJavascript />
+                    <SiReact />
+                    <SiMongodb />
+                    <SiNodedotjs />
+                    <SiExpress />
+                    <SiThreedotjs />
+                </div>
             </div>
         </div>
     )

@@ -16,15 +16,22 @@ const TimeLine = ({ timelines = [] }) => {
                 {
                     timelines.map((timeline, index) => (
                         <TimelineItem key={index}>
-                            <TimelineOppositeContent>
+                            <TimelineOppositeContent
+                                sx={{ m: "auto 0" }}
+                                align="right"
+                                variant="body2"
+                                color="text.secondary"
+                            >
                                 3/22/2020
                             </TimelineOppositeContent>
                             <TimelineSeparator>
+                                <TimelineConnector />
                                 <TimelineDot>
                                     <Event />
                                 </TimelineDot>
+                                <TimelineConnector />
                             </TimelineSeparator>
-                            <TimelineContent>
+                            <TimelineContent sx={{ py: "12px", px: 2 }}>
                                 <Typography variant="h6" component="h1">
                                     Title
                                 </Typography>
