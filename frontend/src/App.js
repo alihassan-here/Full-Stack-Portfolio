@@ -8,27 +8,38 @@ import About from './components/about/About';
 import Projects from './components/projects/Projects';
 import Contact from './components/contact/Contact';
 import Login from './components/login/Login';
-import { useDispatch } from "react-redux";
-import { getUser } from "./actions/user";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser, loadUser } from "./actions/user";
+import AdminPanel from './components/admin/AdminPanel';
 
 function App() {
   const dispatch = useDispatch();
+  const { isAuthenticated } = useSelector(state => state.login);
+  const { loading } = useSelector(state => state.user);
 
   useEffect(() => {
     dispatch(getUser());
+    dispatch(loadUser());
   }, [dispatch])
 
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/account" element={<Login />} />
-      </Routes>
-      <Footer />
+      {
+        loading ? <div>Loading...</div> : (
+          <>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/account" element={isAuthenticated ? <AdminPanel /> : <Login />} />
+            </Routes>
+            <Footer />
+          </>
+        )
+      }
+
     </BrowserRouter>
   );
 }
