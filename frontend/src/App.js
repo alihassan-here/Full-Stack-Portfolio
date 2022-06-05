@@ -1,4 +1,5 @@
 import './App.css';
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/home/Home';
 import Header from './components/header/Header';
@@ -7,8 +8,16 @@ import About from './components/about/About';
 import Projects from './components/projects/Projects';
 import Contact from './components/contact/Contact';
 import Login from './components/login/Login';
+import { useDispatch } from "react-redux";
+import { getUser } from "./actions/user";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, [dispatch])
+
   return (
     <BrowserRouter>
       <Header />
