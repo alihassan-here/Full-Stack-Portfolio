@@ -4,6 +4,8 @@ import "./projects.css";
 import { AiOutlineProject } from "react-icons/ai";
 import { Delete } from '@mui/icons-material';
 import { FaRegSmileWink } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
+import { deleteProject, getUser } from '../../actions/user';
 
 
 
@@ -15,8 +17,15 @@ export const ProjectCard = (
         description,
         technologies,
         isAdmin = false,
+        id,
     }
 ) => {
+    const dispatch = useDispatch();
+
+    const deleteHandler = async (id) => {
+        await dispatch(deleteProject(id));
+        dispatch(getUser());
+    };
     return (
         <>
             <a href={url} className="projectCard" target="black">
@@ -34,6 +43,7 @@ export const ProjectCard = (
             {isAdmin && (
                 <Button
                     style={{ color: "rgba(40,40,40,0.7)" }}
+                    onClick={() => deleteHandler(id)}
                 >
                     <Delete />
                 </Button>
@@ -42,8 +52,7 @@ export const ProjectCard = (
     );
 }
 
-const Projects = () => {
-    const projects = [1, 2, 3];
+const Projects = ({ projects }) => {
     return (
         <div className="projects">
             <Typography variant="h3">
@@ -53,13 +62,13 @@ const Projects = () => {
             <div className="projectsWrapper">
                 {projects.map((item) => (
                     <ProjectCard
-                        id=""
-                        key={Math.random()}
-                        url="https://www.google.com"
-                        projectImage="https://source.unsplash.com/random"
-                        projectTitle="project title"
-                        description="project description"
-                        technologies="html, css, nodejs, exprsss, mongodb"
+                        key={item._id}
+                        id={item._id}
+                        url={item.url}
+                        projectImage={item.image.url}
+                        projectTitle={item.title}
+                        description={item.description}
+                        technologies={item.techStack}
                     />
                 ))}
             </div>

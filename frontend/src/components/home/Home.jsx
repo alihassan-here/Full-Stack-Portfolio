@@ -20,7 +20,7 @@ import {
 import { MouseOutlined } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 
-const Home = () => {
+const Home = ({ timelines, skills }) => {
 
     useEffect(() => {
         const textureLoader = new THREE.TextureLoader();
@@ -149,32 +149,50 @@ const Home = () => {
             </div>
             <div className="homeContainer">
                 <Typography variant="h3">TIMELINE</Typography>
-                <TimeLine timelines={[1, 2, 3, 4]} />
+                <TimeLine timelines={timelines} />
             </div>
             <div className="homeSkills">
                 <Typography variant="h3">SKILLS</Typography>
                 <div className="homeCubeSkills">
                     <div className="homeCubeSkillsFaces homeCubeSkillsFace1">
-                        <img src="https://i.ibb.co/0jqQxX5/html.png" alt="homeFace1" />
+                        <img
+                            src={skills?.image1?.url}
+                            alt="homeFace1"
+                        />
                     </div>
                     <div className="homeCubeSkillsFaces homeCubeSkillsFace2">
-                        <img src="https://i.ibb.co/0jqQxX5/html.png" alt="homeFace2" />
+                        <img
+                            src={skills?.image2?.url}
+                            alt="homeFace2"
+                        />
                     </div>
                     <div className="homeCubeSkillsFaces homeCubeSkillsFace3">
-                        <img src="https://i.ibb.co/0jqQxX5/html.png" alt="homeFace3" />
+                        <img
+                            src={skills?.image3?.url}
+                            alt="homeFace3"
+                        />
                     </div>
                     <div className="homeCubeSkillsFaces homeCubeSkillsFace4">
-                        <img src="https://i.ibb.co/0jqQxX5/html.png" alt="homeFace4" />
+                        <img
+                            src={skills?.image4?.url}
+                            alt="homeFace4"
+                        />
                     </div>
                     <div className="homeCubeSkillsFaces homeCubeSkillsFace5">
-                        <img src="https://i.ibb.co/0jqQxX5/html.png" alt="homeFace5" />
+                        <img
+                            src={skills?.image5?.url}
+                            alt="homeFace5"
+                        />
                     </div>
                     <div className="homeCubeSkillsFaces homeCubeSkillsFace6">
-                        <img src="https://i.ibb.co/0jqQxX5/html.png" alt="homeFace6" />
+                        <img
+                            src={skills?.image6?.url}
+                            alt="homeFace6"
+                        />
                     </div>
                 </div>
                 <div className="cubeShadow"></div>
-                <div className="homeskillsBox">
+                <div className="homeskillsBox" id="homeskillsBox">
                     <SiCplusplus />
                     <SiHtml5 />
                     <SiCss3 />

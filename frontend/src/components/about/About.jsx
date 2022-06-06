@@ -2,25 +2,26 @@ import { Typography } from '@mui/material';
 import React from 'react';
 import "./about.css";
 
-const about = () => {
+const about = ({ about }) => {
+    console.log(about);
     return (
         <div className="about">
             <div className="aboutContainer">
-                <Typography>This is sample quote</Typography>
+                <Typography>{about?.quote}</Typography>
             </div>
             <div className="aboutContainer2">
                 <div>
                     <img
-                        src="https://avatars.githubusercontent.com/u/25050652?v=4"
+                        src={about?.avatar?.url}
                         alt="ali"
                         className="aboutAvatar"
                     />
                     <Typography
                         variant="h4"
                         style={{ margin: "1vmax 0", color: "black" }}
-                    >Ali Hassan</Typography>
-                    <Typography>Full Stack Developer</Typography>
-                    <Typography style={{ margin: "1vmax 0" }}>I am a Software Developer</Typography>
+                    >{about?.name}</Typography>
+                    <Typography>{about?.title}</Typography>
+                    <Typography style={{ margin: "1vmax 0" }}>{about?.subtitle}</Typography>
                 </div>
                 <div>
                     <Typography
@@ -31,7 +32,7 @@ const about = () => {
                             textAlign: 'right'
                         }}
                     >
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi iure, expedita, nulla reprehenderit aspernatur quod sint molestiae repellat optio numquam aliquid! Reiciendis ut facere corporis quis recusandae. Cumque, facilis vel.
+                        {about?.description}
                     </Typography>
                 </div>
             </div>

@@ -99,7 +99,7 @@ export const updateUser = async (req, res) => {
         const user = await User.findById(req.user._id);
 
         const { name, email, password, skills, about } = req.body;
-
+        console.log(about);
         if (name) user.name = name;
         if (email) user.email = email;
         if (password) user.password = password;
@@ -188,7 +188,7 @@ export const updateUser = async (req, res) => {
                 user.about.quote = about.quote;
             }
             if (about.avatar) {
-                await cloudinary.v2.uploader.destroy(user.about.avatar.public_id);
+                // await cloudinary.v2.uploader.destroy(user.about.avatar.public_id);
 
                 const result = await cloudinary.v2.uploader.upload(about.avatar, {
                     folder: "portfolio",
@@ -294,11 +294,11 @@ export const deleteProject = async (req, res) => {
         const { id } = req.params;
         const user = await User.findById(req.user._id);
 
-        const project = user.projects.filter(item => item._id.toString() !== id);
+        const project = user.projects.find((item) => item._id == id);
 
         await cloudinary.v2.uploader.destroy(project.image.public_id);
 
-        user.projects = user.projects.filter(item => item._id.toString() !== id);
+        user.projects = user.projects.filter((item) => item._id != id);
 
         await user.save();
 

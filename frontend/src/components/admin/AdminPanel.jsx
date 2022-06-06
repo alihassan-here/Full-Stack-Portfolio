@@ -30,16 +30,18 @@ const AdminPanel = () => {
         dispatch(logout());
     }
 
-    const handleAboutImage = e => {
+    const handleAboutImage = (e) => {
+        const file = e.target.files[0];
         const Reader = new FileReader();
-        Reader.readAsDataURL(e.target.files[0]);
+
+        Reader.readAsDataURL(file);
 
         Reader.onload = () => {
             if (Reader.readyState === 2) {
-                setAbout(...about, { avatar: Reader.result });
+                setAbout({ ...about, avatar: Reader.result });
             }
-        }
-    }
+        };
+    };
     const handleImages = (e, val) => {
         const Reader = new FileReader();
         Reader.readAsDataURL(e.target.files[0]);
@@ -67,8 +69,10 @@ const AdminPanel = () => {
             }
         }
     }
+    console.log(about)
 
     useEffect(() => {
+
         if (error) {
             alert.error(error);
             dispatch({ type: "CLEAR_ERRORS" });
