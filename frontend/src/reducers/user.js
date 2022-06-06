@@ -69,5 +69,46 @@ export const loginReducer = createReducer({}, {
         state.message = null;
     },
 });
+export const updateReducer = createReducer({}, {
+    UPDATE_USER_REQUEST: (state) => {
+        state.loading = true;
+    },
+    UPDATE_USER_SUCCESS: (state, action) => {
+        state.loading = false;
+        state.message = action.payload;
+    },
+    UPDATE_USER_FAILURE: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+    },
+    ADD_TIMELINE_REQUEST: (state) => {
+        state.loading = true;
+    },
+    ADD_TIMELINE_SUCCESS: (state, action) => {
+        state.loading = false;
+        state.message = action.payload;
+    },
+    ADD_TIMELINE_FAILURE: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+    },
+    DELETE_TIMELINE_REQUEST: (state) => {
+        state.loading = true;
+    },
+    DELETE_TIMELINE_SUCCESS: (state, action) => {
+        state.loading = false;
+        state.message = action.payload;
+    },
+    DELETE_TIMELINE_FAILURE: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+    },
+    CLEAR_ERROR: (state) => {
+        state.error = null;
+    },
+    CLEAR_MESSAGE: (state) => {
+        state.message = null;
+    },
+});
 
 
