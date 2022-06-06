@@ -126,6 +126,17 @@ export const updateReducer = createReducer({}, {
         state.loading = false;
         state.error = action.payload;
     },
+    CONTACT_US_REQUEST: (state) => {
+        state.loading = true;
+    },
+    CONTACT_US_SUCCESS: (state, action) => {
+        state.loading = false;
+        state.message = action.payload;
+    },
+    CONTACT_US_FAILURE: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+    },
     CLEAR_ERROR: (state) => {
         state.error = null;
     },

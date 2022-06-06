@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./contact.css";
 import { Button, Typography } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { useAlert } from "react-alert";
+import { contactUs } from '../../actions/user';
 
 
 const Contact = () => {
@@ -8,9 +11,24 @@ const Contact = () => {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
 
+    const dispatch = useDispatch();
+    const alert = useAlert();
+
+    const { loading, message: alertMessage, error } = useSelector(state => state.update);
+
     const contactFormHandler = (e) => {
         e.preventDefault();
+        dispatch(contactUs(name, email, message));
     };
+
+    useEffect(() => {
+        if (error) {
+            alert.error(error);
+        }
+        if (alertMessage) {
+            alert.success(alertMessage);
+        }
+    }, [error, alertMessage, alert, dispatch]);
 
     return (
         <div className="contact">
@@ -43,7 +61,7 @@ const Contact = () => {
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                     ></textarea>
-                    <Button variant="contained" type="submit">
+                    <Button variant="contained" type="submit" disabled={loading}>
                         Send
                     </Button>
                 </form>
