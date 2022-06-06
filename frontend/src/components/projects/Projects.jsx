@@ -7,7 +7,7 @@ import { FaRegSmileWink } from 'react-icons/fa';
 
 
 
-const ProjectCard = (
+export const ProjectCard = (
     {
         url,
         projectImage,

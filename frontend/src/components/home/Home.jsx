@@ -17,6 +17,8 @@ import {
     SiHtml5,
     SiThreedotjs,
 } from "react-icons/si";
+import { MouseOutlined } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 
@@ -119,6 +121,32 @@ const Home = () => {
     return (
         <div className="home">
             <canvas className="homeCanvas"></canvas>
+            <div className="homeCanvasContainer">
+                <Typography variant="h1">
+                    <p>A</p>
+                    <p>L</p>
+                    <p>I</p>
+                    <p>H</p>
+                    <p>A</p>
+                    <p>S</p>
+                    <p>S</p>
+                    <p>A</p>
+                    <p>N</p>
+                </Typography>
+
+                <div className="homeCanvasBox">
+                    <Typography variant="h2">DESIGNER</Typography>
+                    <Typography variant="h2">DEVELOPER</Typography>
+                    <Typography variant="h2">TEACHER</Typography>
+                    <Typography variant="h2">CONTENT CREATOR</Typography>
+                </div>
+
+                <Link to="/projects">VIEW WORK</Link>
+            </div>
+
+            <div className="homeScrollBtn">
+                <MouseOutlined />
+            </div>
             <div className="homeContainer">
                 <Typography variant="h3">TIMELINE</Typography>
                 <TimeLine timelines={[1, 2, 3, 4]} />
