@@ -2,7 +2,7 @@ import React from 'react';
 import "./footer.css";
 import { Link } from 'react-router-dom';
 import { Typography } from '@mui/material';
-import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
+import { BsGithub, BsInstagram, BsLinkedin, BsTwitter } from "react-icons/bs";
 
 const Footer = () => {
     return (
@@ -21,11 +21,14 @@ const Footer = () => {
                 <a href="https://github.com/alihassan-here/" target="black">
                     <BsGithub />
                 </a>
-                <a href="https://instagram.com/meabhisingh/" target="black">
+                <a href="https://instagram.com/eliii_here/" target="black">
                     <BsInstagram />
                 </a>
-                <a href="https://www.linkedin.com/in/alihassanhere/" target="black">
+                <a href="https://www.linkedin.com/in/ali-hassan-here/" target="black">
                     <BsLinkedin />
+                </a>
+                <a href="https://twitter.com/ALIHassanhere" target="black">
+                    <BsTwitter />
                 </a>
             </div>
         </div>

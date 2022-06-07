@@ -19,6 +19,9 @@ const Contact = () => {
     const contactFormHandler = (e) => {
         e.preventDefault();
         dispatch(contactUs(name, email, message));
+        setName("");
+        setEmail("");
+        setMessage("");
     };
 
     useEffect(() => {
