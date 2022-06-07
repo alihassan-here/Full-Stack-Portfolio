@@ -138,3 +138,10 @@
     align-items: center;
     flex-wrap: wrap;
 }
+
+.logoutBtn {
+    /* margin-left: 46% !important;
+    margin-bottom: 50px !important; */
+    display: block !important;
+    margin: 4vmax auto !important;
+}

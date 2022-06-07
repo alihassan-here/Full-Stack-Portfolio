@@ -226,7 +226,7 @@ const AdminPanel = () => {
                     </Link>
                     <Button type="submit" variant="contained" disabled={loading}>Update</Button>
                 </form>
-                <Button variant="contained" color="error" sytle={{ display: "block", margin: "4vmax auto" }} onClick={logoutHandler}>LOGOUT</Button>
+                <Button variant="contained" color="error" className='logoutBtn' onClick={logoutHandler}>LOGOUT</Button>
             </div>
 
         </div>

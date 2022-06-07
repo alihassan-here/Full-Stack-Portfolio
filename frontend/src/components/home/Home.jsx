@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import "./home.css";
 import * as THREE from 'three';
-import moonImage from "../../images/moon.jpg";
-import venusImage from "../../images/venus.jpg";
-import spaceImage from "../../images/space.jpg";
+import moonImage from "../../images/moon.jpeg";
+import venusImage from "../../images/venus.jpeg";
+import spaceImage from "../../images/space.jpeg";
 import { Typography } from '@mui/material';
 import TimeLine from '../timeline/TimeLine';
 import {
