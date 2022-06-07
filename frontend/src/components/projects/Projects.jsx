@@ -35,7 +35,7 @@ export const ProjectCard = (
                 </div>
                 <div>
                     <Typography variant="h4"> About Project</Typography>
-                    <Typography>{description}</Typography>
+                    <Typography style={{ textAlign: 'justify' }}>{description}</Typography>
                     <Typography variant="h6">Tech Stack: {technologies}</Typography>
                 </div>
             </a>
